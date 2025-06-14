@@ -1,0 +1,174 @@
+Object: an entitu which has its own states and behaviour
+
+Class: java definition block which defines state and behaviour of an          object
+
+
+OOP
+----
+OOP is a programming paradigm which basicllay solves real world problems by treating every realworld entity as an object
+
+Pillars of OOPs
+----------------
+1. Inheritance
+2. Encapsulation
+3. Polymorphism
+4. Abstraction
+
+
+
+
+what all things can be written inside a java class ?
+
+1.  declare and initialize static and non static variables
+2.  declare and define     static and non static member functions
+3.  Constructor
+4.  static non static Blocks
+5.  inner static non static class 
+6.  inner interfaces
+
+
+
+1.  Inheritance
+
+    its the process of inheriting properties from parent/super/base to child/sub/derieved class 
+
+ types of inheritance
+------------------------
+
+1 . Single level inheritance
+
+2. Multilevel inheritance
+
+3. Hierarchical inheritance
+
+4.  Hybrid inheritance
+
+-------------------------------------
+
+not allowed
+
+5. multiple inheritance
+6. Cyclic inheritance
+
+imp conclusion
+-----------------
+
+1 . private members, constr. blocks do not get inherited
+
+2 . every class in java is directly or indirectly  child of object
+
+3 . an empty class always has extends object and a default constructor
+
+Encapsulation  JAVA BEAN / POJO
+--------------
+
+Its the process of binding data members with the member functions
+to provide controlled access to private members.
+
+Polymorphism
+-------------
+
+poly -> many
+morph -> form
+
+
+its ability of an object to exhibit multiple forms in different stages
+
+Runtime / dynamic polymorphic
+------------------------------
+example: Method Overriding
+
+binding of method declaration with method definition happens during
+runtime
+
+
+Compile time/ static polymorphism
+----------------------------------
+
+example: Method Overloading
+
+binding of method declaration with method definition happens during
+compiletime
+
+
+Rules of Override
+------------------
+
+1 signature should be same
+2. return kw 
+    -> primitive types cannot be changed
+    -> non primitives you can change to co variant types but not            contra variant types
+3. access modifiers
+    visibility can be kept same or can be increased but cannot be 
+    decreased
+
+
+parent : public        protected        default    
+
+child  : public        protected/public  default/protected/public
+
+
+
+not        protected
+allowed    default
+           private
+
+4.  private -> cannot be inherited
+    final   -> cannot be overridden
+    static  -> not participate in overriding 
+
+
+        final class cannot beinherited
+        final method cannot be overridden 
+        final variable cannot be re initialized
+-------------------------------------------------
+
+
+Abstraction
+------------
+
+
+void m1()
+{
+ sop("") // concrete
+}
+
+void m1()
+{
+ // empty impl
+}
+abstract void m1();// abstract
+
+abstract Class A{
+
+}
+
+
+interfaces
+-----------
+
+1. all methods are public and abstract by default
+2. all variables are public static final
+3. abstract classes and interfaces cannot be instantiated
+4. multiple inheritance is allowed in interfaces
+5. interfaces are used for standardization
+6. only a class can implement an interface
+7. a class can implement multiple interfaces and extend other classes at the same time
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+package multithreading;
+
+public class YoutubeMain 
+{
+	public static void main(String[] args) 
+	{
+		VideoStreaming vs = new VideoStreaming();
+		CommentReading cr = new CommentReading();
+		VideoDownloading vd = new VideoDownloading();
+		
+//		vs.start();
+//		cr.start();
+//		vd.start();
+		
+		vs.run();
+		cr.run();
+		vd.run();
+		
+	}
+
+}

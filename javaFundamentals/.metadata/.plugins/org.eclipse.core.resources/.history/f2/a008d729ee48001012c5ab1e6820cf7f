@@ -1,0 +1,25 @@
+package exceptions;
+
+public class BankingTransactionService 
+{
+	public void checkBalance(double amtBal,double amtWithdraw)
+	{
+		System.out.println("validation started");
+		
+		if(amtBal>amtWithdraw)
+		{
+			System.out.println("please collect cash "+amtWithdraw);
+			amtBal -= amtWithdraw;
+			
+		}
+		
+		else
+		{
+			throw new InsufficientBalanceExecption("insufficent funds");
+		}
+		
+		
+		System.out.println("validation complete");
+	}
+
+}

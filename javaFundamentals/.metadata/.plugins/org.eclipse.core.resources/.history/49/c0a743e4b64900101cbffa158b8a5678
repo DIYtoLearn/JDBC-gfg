@@ -1,0 +1,34 @@
+package lambdaExpressions;
+
+@FunctionalInterface
+interface Itr{
+	
+	void m1();
+	
+}
+
+//class ItrImpl implements Itr
+//{
+//
+//	@Override
+//	public void m1() {
+//		System.out.println("m1 implementation");
+//	}
+//	
+//}
+
+public class Demo1 
+{
+   public static void main(String[] args)
+   {
+	    Itr i = new Itr(){
+
+	    	@Override
+	    	public void m1() {
+	    		System.out.println("m1 implementation");
+	    	}
+	    	
+	    };
+	     i.m1();
+   }
+}

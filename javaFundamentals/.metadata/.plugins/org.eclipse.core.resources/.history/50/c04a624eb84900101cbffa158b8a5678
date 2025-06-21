@@ -1,0 +1,9 @@
+package lambdaExpressions;
+
+public class A 
+{
+  class B
+  {
+	  
+  }
+}

@@ -1,0 +1,11 @@
+package maps;
+
+import java.util.HashMap;
+
+public class Demo1
+{
+	public static void main(String[] args) {
+		HashMap hm = new HashMap(100,0.9f);
+	}
+
+}

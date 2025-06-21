@@ -1,0 +1,25 @@
+package multithreading;
+
+import java.util.concurrent.Callable;
+
+class Task1 implements Callable
+{
+
+	@Override
+	public Object call() throws Exception 
+	{
+		for (int i = 0; i <5; i++) {
+			System.out.println(Thread.currentThread().getName()+" is executing");
+		}
+		
+		return null;
+	}
+	
+	
+}
+
+
+public class CallableDemo 
+{
+
+}

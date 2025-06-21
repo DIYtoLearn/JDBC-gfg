@@ -1,0 +1,13 @@
+package multithreading;
+
+class Task1 implements Callable
+{
+	
+	
+}
+
+
+public class CallableDemo 
+{
+
+}

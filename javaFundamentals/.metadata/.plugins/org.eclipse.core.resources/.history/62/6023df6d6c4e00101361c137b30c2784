@@ -1,0 +1,25 @@
+package multithreading;
+
+class TicketService 
+{
+	
+	int numOfSeats = 3;
+	
+	public void bookSeats()
+	{
+		System.out.println("Seat Booking start");
+		
+		System.out.println("Seat Booking end");
+		
+	}
+	
+	
+	
+}
+
+
+public class TicketBookingMain 
+{
+	
+
+}

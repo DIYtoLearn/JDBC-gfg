@@ -1,0 +1,48 @@
+package multithreading;
+
+class TicketService implements Runnable
+{
+	
+	int numOfSeats = 3;
+	
+	public void bookSeats() throws InterruptedException
+	{
+		System.out.println("Seat Booking start");
+		
+		System.out.println(Thread.currentThread()+ " has selected seat "+numOfSeats);
+		Thread.sleep(2000);
+		System.out.println(Thread.currentThread()+ " has made payment "+numOfSeats);
+		Thread.sleep(2000);
+		System.out.println(Thread.currentThread()+ " has booked seat "+numOfSeats);
+		
+		
+		System.out.println("Seat Booking end");
+		
+	}
+
+	@Override
+	public void run() {
+		try {
+			bookSeats();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+}
+
+
+public class TicketBookingMain 
+{
+	public static void main(String[] args) 
+	{
+		TicketService ts = new TicketServie();
+		Thread user1 = new Thread()
+		
+	}
+
+}

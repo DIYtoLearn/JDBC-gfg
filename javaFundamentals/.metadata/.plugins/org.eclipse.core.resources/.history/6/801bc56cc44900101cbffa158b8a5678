@@ -1,0 +1,22 @@
+package streamsApi;
+
+import java.util.List;
+
+public class EKartServiceMain 
+{
+	public static Customer getCustByEmail(String email)
+	{
+		List<Customer> allCustomers=EkartDatabase.getAllCustomers();
+		
+	return	allCustomers.stream().filter(customers->customers.getCustEmail().equalsIgnoreCase(email)).findFirst().orElseThrow(()->new CustomerNotFoundException("no customer with given email"));
+		
+		
+		
+	}
+	public static void main(String[] args) 
+	{
+		System.out.println(getCustByEmail("anu@gmail.com"));
+		
+	}
+
+}

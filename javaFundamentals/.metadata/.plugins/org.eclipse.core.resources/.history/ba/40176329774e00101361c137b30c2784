@@ -1,0 +1,51 @@
+package multithreading;
+
+import java.util.LinkedList;
+
+class BlockingQueue<T>
+{
+	private  final Queue<T> queue = new LinkedList<>();
+	
+	private final int capacity;
+	
+	public BlockingQueue(int capacity)
+	{
+		this.capacity=capacity;
+	}
+	
+	public synchronized void enqueue(T item) throws InterruptedException
+	{
+		while(queue.size()==capacity)
+		{
+			wait();
+		}
+		
+		queue.add(item);
+		System.out.println("added " +item);
+		notifyAll();
+	}
+	
+	
+	public synchronized T dequeue() throws InterruptedException
+	{
+		while(queue.isEmpty())
+		{
+			wait();
+		}
+		
+		T item =queue.remove();
+		System.out.println("removed " +item);
+		notifyAll();
+		return item;
+	}
+	
+	public synchronized int size()
+	{
+		return queue.size();
+	}
+	
+}
+
+public class multithreading {
+
+}

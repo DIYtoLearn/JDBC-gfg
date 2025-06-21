@@ -1,0 +1,16 @@
+package lambdaExpressions;
+
+@FunctionalInterface
+interface Itr{
+	
+	void m1();
+	
+}
+
+public class Demo1 
+{
+   public static void main(String[] args)
+   {
+	
+   }
+}

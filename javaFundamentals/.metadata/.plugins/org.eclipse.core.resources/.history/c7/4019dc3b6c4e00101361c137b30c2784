@@ -1,0 +1,22 @@
+package multithreading;
+
+class TicketService 
+{
+	
+	int numOfSeats = 3;
+	
+	public void bookSeats()
+	{
+		
+	}
+	
+	
+	
+}
+
+
+public class TicketBookingMain 
+{
+	
+
+}

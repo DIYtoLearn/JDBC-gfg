@@ -1,0 +1,14 @@
+package streamsApi;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class Demo1
+{
+	public static void main(String[] args)
+	{
+		List<Integer> marks = Arrays.asList(10,20,50,60,70,70,80,90,90);
+		
+	}
+
+}

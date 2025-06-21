@@ -1,0 +1,17 @@
+package exceptions;
+
+public class BankingMain 
+{
+	public static void main(String[] args)
+	{
+		System.out.println("welcome to gfg bank");
+		BankingTransactionService bt = new BankingTransactionService();
+		
+	
+			bt.checkBalance(10000, 20000);
+			
+		
+		System.out.println("thank you");
+	}
+
+}

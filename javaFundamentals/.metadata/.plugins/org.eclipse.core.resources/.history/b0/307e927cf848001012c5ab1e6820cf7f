@@ -1,0 +1,62 @@
+package collection;
+
+import java.util.TreeSet;
+
+class Employee implements Comparable
+{
+	private int id;
+	private String name;
+	
+	public Employee(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + "]";
+	}
+	
+}
+
+public class SetDemo 
+{
+	public static void main(String[] args) 
+	{
+//		TreeSet hs = new TreeSet();
+//		hs.add(Integer.valueOf(10));
+//		hs.add(10);
+//		hs.add(20);
+//		hs.add(30);
+//		hs.add(160);
+//		hs.add(104);
+//		System.out.println(hs);
+		
+		TreeSet hs = new TreeSet();
+		hs.add(new Employee(1,"syed"));
+		hs.add(new Employee(3,"saqib"));
+		hs.add(new Employee(2,"rahul"));
+		
+		System.err.println(hs);
+		
+		//hs.hashCode()
+		
+		
+		
+		
+	}
+
+}

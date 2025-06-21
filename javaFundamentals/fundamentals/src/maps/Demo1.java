@@ -1,0 +1,27 @@
+package maps;
+
+import java.util.TreeMap;
+
+public class Demo1
+{
+	public static void main(String[] args) {
+//		HashMap hm = new HashMap(100,0.99f);
+//		hm.put(101, "syed");
+//		hm.put(201, "saqib");
+//		hm.put(301, "syed");
+//		System.out.println(hm);
+//		LinkedHashMap hm = new LinkedHashMap(100,0.99f);
+//		hm.put(101, "syed");
+//		hm.put(201, "saqib");
+//		hm.put(301, "syed");
+//		System.out.println(hm);
+		TreeMap hm = new TreeMap();
+		hm.put(101, "syed");
+		hm.put(201, "saqib");
+		hm.put(301, "syed");
+		System.out.println(hm);
+		
+		
+	}
+
+}

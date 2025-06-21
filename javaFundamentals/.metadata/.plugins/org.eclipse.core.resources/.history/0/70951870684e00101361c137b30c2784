@@ -1,0 +1,26 @@
+package multithreading;
+
+public class YoutubeDemoSingleThread
+{
+	
+	public static void main(String[] args) throws InterruptedException
+	{
+		 System.out.println("video streaming start");
+		 for (int i = 0; i < 5; i++) {
+			System.out.println("video streaming...");
+			Thread.sleep(1000);
+		}
+		 System.out.println("video streaming end");
+		 
+		 
+		 System.out.println("comment reading start");
+		 System.out.println("comment reading end");
+		 
+		 
+		 System.out.println("downloading start");
+		 System.out.println("downloading end");
+		 
+	}
+	
+
+}

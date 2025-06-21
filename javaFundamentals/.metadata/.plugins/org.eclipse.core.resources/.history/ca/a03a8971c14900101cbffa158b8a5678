@@ -1,0 +1,37 @@
+package streamsApi;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Demo1
+{
+	public static void main(String[] args)
+	{
+		List<Integer> marks = Arrays.asList(10,20,50,60,70,70,80,90,90);
+		List<Integer> passedMarks = new ArrayList();
+		
+		for(int i = 0 ; i<marks.size();i++)
+		{
+			if(marks.get(i)>35)
+			{
+				passedMarks.add(marks.get(i));
+			}
+		}
+
+		System.out.println(passedMarks);
+		
+		List passed=marks.stream().filter(i->i>35).collect(Collectors.toList());
+		passed.forEach(System.out::println);
+		
+		 marks.stream().map(i->i+15).collect(Collectors.toList()).forEach(System.out::println);
+
+		 System.out.println(marks.stream().filter(i->i<35).count());
+		 
+		 System.out.println(marks.stream().sorted().collect(Collectors.toList()));
+
+
+	}
+
+}

@@ -1,0 +1,17 @@
+package exceptions;
+
+public class BankingMain 
+{
+	public static void main(String[] args)
+	{
+		BankingTransactionService bt = new BankingTransactionService();
+		
+		try {
+			
+			
+		} catch (RuntimeException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+}

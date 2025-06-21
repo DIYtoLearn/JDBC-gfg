@@ -1,0 +1,12 @@
+package lambdaExpressions;
+
+interface Itr{
+	
+	void m1();
+	
+}
+
+public class Demo1 
+{
+
+}

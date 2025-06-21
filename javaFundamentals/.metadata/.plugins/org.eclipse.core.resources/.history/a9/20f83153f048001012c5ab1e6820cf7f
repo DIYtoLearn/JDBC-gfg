@@ -1,0 +1,13 @@
+package exceptions;
+
+class Demo
+{
+	private Demo()
+	{
+		
+	}
+}
+
+public class SingleTonDesignPatternDemo {
+
+}

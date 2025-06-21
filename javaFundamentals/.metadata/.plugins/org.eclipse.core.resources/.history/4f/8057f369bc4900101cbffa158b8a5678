@@ -1,0 +1,42 @@
+package lambdaExpressions;
+
+import java.util.function.Supplier;
+
+public class SupplierDemo
+{
+	public static void main(String[] args)
+	{
+		Supplier<String> generateOtp=()->{
+			
+			String otp="";
+			
+			for(int i = 0; i < 6;i++)
+			{
+				otp = (int)(Math.random()*1000000)+otp;
+			}
+			
+		   return otp;
+		};
+		
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		System.out.println(generateOtp.get());
+		
+		
+		
+	}
+
+}

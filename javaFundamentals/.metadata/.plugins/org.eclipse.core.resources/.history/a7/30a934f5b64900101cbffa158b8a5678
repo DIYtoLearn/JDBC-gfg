@@ -1,0 +1,23 @@
+package lambdaExpressions;
+
+@FunctionalInterface
+interface Itr{
+	
+	int square(n);
+	
+}
+public class Demo1 
+{
+   public static void main(String[] args)
+   {
+	    Itr i = new Itr(){
+
+	    	@Override
+	    	public int square(int n) {
+	    		return n*n;
+	    	}
+	    	
+	    };
+	     i.m1();
+   }
+}

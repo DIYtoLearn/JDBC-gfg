@@ -1,0 +1,35 @@
+package streamsApi;
+
+import java.util.List;
+
+
+public class EKartServiceMain 
+{
+	
+	/**
+	 * @param email
+	 * @return
+	 * @throws CustomerNotFoundException
+	 */
+	public static Customer getCustByEmail(String email) throws CustomerNotFoundException
+	{
+		
+	List<Customer> allCustomers=EkartDatabase.getAllCustomers();
+		
+	return	allCustomers.stream().filter(customers->customers.getCustEmail().equalsIgnoreCase(email))
+			 .findFirst().orElseThrow(()->new CustomerNotFoundException("no customer with given email"));
+		
+		
+	}
+	public static void main(String[] args) 
+	{
+		try {
+			System.out.println(getCustByEmail("aman@gmail.com"));
+		} catch (CustomerNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
+		}
+		
+	}
+
+}

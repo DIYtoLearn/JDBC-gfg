@@ -1,0 +1,11 @@
+package exceptions;
+
+public class BankingMain 
+{
+	public static void main(String[] args)
+	{
+		throw new InsufficientBalanceExcepiton("insufficient funds");
+		
+	}
+
+}

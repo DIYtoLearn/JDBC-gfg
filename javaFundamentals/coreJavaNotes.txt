@@ -1,0 +1,380 @@
+Object: an entitu which has its own states and behaviour
+
+Class: java definition block which defines state and behaviour of an          object
+
+
+OOP
+----
+OOP is a programming paradigm which basicllay solves real world problems by treating every realworld entity as an object
+
+Pillars of OOPs
+----------------
+1. Inheritance
+2. Encapsulation
+3. Polymorphism
+4. Abstraction
+
+
+
+
+what all things can be written inside a java class ?
+
+1.  declare and initialize static and non static variables
+2.  declare and define     static and non static member functions
+3.  Constructor
+4.  static non static Blocks
+5.  inner static non static class 
+6.  inner interfaces
+
+
+
+1.  Inheritance
+
+    its the process of inheriting properties from parent/super/base to child/sub/derieved class 
+
+ types of inheritance
+------------------------
+
+1 . Single level inheritance
+
+2. Multilevel inheritance
+
+3. Hierarchical inheritance
+
+4.  Hybrid inheritance
+
+-------------------------------------
+
+not allowed
+
+5. multiple inheritance
+6. Cyclic inheritance
+
+imp conclusion
+-----------------
+
+1 . private members, constr. blocks do not get inherited
+
+2 . every class in java is directly or indirectly  child of object
+
+3 . an empty class always has extends object and a default constructor
+
+Encapsulation  JAVA BEAN / POJO
+--------------
+
+Its the process of binding data members with the member functions
+to provide controlled access to private members.
+
+Polymorphism
+-------------
+
+poly -> many
+morph -> form
+
+
+its ability of an object to exhibit multiple forms in different stages
+
+Runtime / dynamic polymorphic
+------------------------------
+example: Method Overriding
+
+binding of method declaration with method definition happens during
+runtime
+
+
+Compile time/ static polymorphism
+----------------------------------
+
+example: Method Overloading
+
+binding of method declaration with method definition happens during
+compiletime
+
+
+Rules of Override
+------------------
+
+1 signature should be same
+2. return kw 
+    -> primitive types cannot be changed
+    -> non primitives you can change to co variant types but not            contra variant types
+3. access modifiers
+    visibility can be kept same or can be increased but cannot be 
+    decreased
+
+
+parent : public        protected        default    
+
+child  : public        protected/public  default/protected/public
+
+
+
+not        protected
+allowed    default
+           private
+
+4.  private -> cannot be inherited
+    final   -> cannot be overridden
+    static  -> not participate in overriding 
+
+
+        final class cannot beinherited
+        final method cannot be overridden 
+        final variable cannot be re initialized
+-------------------------------------------------
+
+
+Abstraction
+------------
+
+
+void m1()
+{
+ sop("") // concrete
+}
+
+void m1()
+{
+ // empty impl
+}
+abstract void m1();// abstract
+
+abstract Class A{
+
+}
+
+
+interfaces
+-----------
+
+1. all methods are public and abstract by default
+2. all variables are public static final
+3. abstract classes and interfaces cannot be instantiated
+4. multiple inheritance is allowed in interfaces
+5. interfaces are used for standardization
+6. only a class can implement an interface
+7. a class can implement multiple interfaces and extend other classes at the same time
+
+
+
+
+--------------------------------------------------------
+
+Exception Handling 
+------------------
+
+try catch finally throw and throws
+
+throws is used to manually inform the caller about the checked exception as they do not have automatic
+exception propagation capability.
+
+throw is used to explicitly throw exceptions
+ especially custom exception
+
+
+---------------------------------------------------------
+Collection ()
+--------------
+A group individual objects represented as a single entity
+
+
+List
+-----
+A group individual objects where duplicates are allowed and insertion order is preserved  
+
+ArrayList
+LinkedList
+
+Vector
+Stack
+
+Set 
+----
+A group individual objects where duplicates are not allowed and insertion order is not preserved  
+
+HashSet
+LinkedHashSet
+TreeSet
+Homogenous And Comparable
+
+
+Queue
+-----
+A group individual objects where objects are represented according to some priority order.
+
+ArrayDeque     double ended queue
+PriorityQueue  min heap data structure
+
+
+
+
+
+
+
+Maps
+-----
+HasMap
+
+internal  working
+------------------
+
+1. HashMap stores data in  key value pairs
+    internally uses an array of buckets
+    each bucket is a linked list or a binary tree(since java 8)
+    to handle collision
+
+2. Hashing Mechanism
+    Each Key is processed through the hashcode() method
+
+3. index calculation
+     
+ index = (n-1) & hash
+
+4. Hashing collision
+    if multiple keys hash to the same index
+     
+-> java 7: Linked list is used 0(n) for lookup
+
+   java 8 if list size > 8 and bucket size > 64 , list becomes
+   Red black tree / balances tree 0(log n) lookup .
+
+
+
+
+
+
+-------------------------------------------------------
+
+
+Java 8 fetures
+--------------
+
+
+functional interfaces
+
+lambda expression
+------------------
+
+anonymous functions
+  which have 
+
+   no name
+   no return type
+   no modifier
+----------------------------
+1. 
+public void m1()
+{
+  System.out.print("Hello World");
+}
+-----
+
+()->{System.out.print("Hello World");};
+()-> System.out.print("Hello World");
+
+2. 
+public void square(int x)
+{
+  System.out.print(x*x);
+}
+-----
+
+(x)-> System.out.print(x*x);
+
+ x-> System.out.print(x*x);
+
+3. 
+public void mul(int x,int y)
+{
+   return x*y;
+}
+----
+(int x,int y)->{ return x*y;};
+
+(x,y)->{ return x*y;};
+
+(x,y)-> x*y;
+
+ n->n*n;
+
+------------------------------------
+   x->  return x*x;  invalid
+
+  (x) ->  return x*x; invaliid
+
+  x-> { return x*x; } ; invalid
+
+  x-> { return x*x } ; invalid
+
+  x-> { return x*x; }; valid
+
+----------------------------------
+
+
+Functional interface
+----------------------
+
+1. Predicate
+   Boolean condition checks
+    
+     
+
+2. Function
+    any input and return
+
+3. Consumer
+     consumes an input no return
+
+4. Supplier
+    no input only return
+
+
+Math.random()*10(int)
+
+0.0 to 0.9
+
+--------------------
+Streams were introduced to process collection in concise and efficient way
+
+
+ Streams
+-----------
+streams are lazy initialized and cannot be re used
+
+they are divided in intermediary operations and terminal operations
+
+intermediary operation do no execute until terminal operators are called(i,e lazy initialised )
+
+
+intermediary operations. 
+example filter() map()
+
+terminal operations.
+count() collect() min() max()
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+package streamsApi;
+
+public class EKartServiceMain 
+{
+	public static Customer getCustByEmail(String email)
+	{
+		return null;
+		
+	}
+
+}

@@ -105,3 +105,4 @@
 2025-06-21 14:07:37,307 [Worker-83: Launching Executing install in C__gfg-2_javaFundamentals_demo] INFO  o.eclipse.m2e.core.internal.Bundles - 	Entry: C:\Users\admin\.p2\pool\plugins\com.google.guava.failureaccess_1.0.2.jar
 2025-06-21 14:07:37,309 [Worker-83: Launching Executing install in C__gfg-2_javaFundamentals_demo] INFO  o.e.m.i.launch.MavenLaunchDelegate - Run build in "C:\gfg-2\javaFundamentals\demo":
 2025-06-21 14:07:37,310 [Worker-83: Launching Executing install in C__gfg-2_javaFundamentals_demo] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -Dstyle.color=always install
+2025-06-22 13:25:03,414 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

@@ -1,0 +1,44 @@
+java - > j2ee   --> Spring   ----- > SpringBoot
+         jdbc         DI               extension of spring framework
+         servlets     MVC              declarative framework
+                      JDBC             autoconfiguration
+                      Hibernate        embedded server
+                                       easy microservices development
+
+
+
+spring-config+embeddedServer=springboot
+
+
+@SpringBootApplication // @Autoconfiguration + @Configuration + @ComponentScan
+
+
+SpringBootRunners
+
+1. CommandLineRunner
+2. ApplicationRunner
+
+
+
+Spring Boot profiling encompasses two main aspects: managing environment-specific configurations using Spring Profiles and analyzing application performance using profiling tools.
+1. Spring Profiles:
+Purpose:
+Spring Profiles provide a mechanism to segregate and manage different configurations for various environments (e.g., development, testing, production). This allows for easy switching between configurations without modifying the core application code.
+Mechanism:
+Profiles are typically defined in application.properties or application.yml files, often with environment-specific suffixes like application-dev.properties or application-prod.yml.
+Activation:
+Profiles can be activated at runtime using the spring.profiles.active property (e.g., --spring.profiles.active=dev or by setting the SPRING_PROFILES_ACTIVE environment variable).
+Usage:
+Configuration: Define different property values for various environments.
+Bean Activation: Use the @Profile annotation on @Configuration classes or @Component beans to conditionally load them based on the active profile.
+Profile Groups: Group related profiles together for easier activation (e.g., production group activating proddb and prodmq profiles). 
+2. Profiling Tools:
+Purpose:
+Profiling tools help analyze the performance of a Spring Boot application by monitoring resource usage (CPU, memory), identifying bottlenecks, and optimizing code.
+Examples:
+VisualVM: A free all-in-one Java troubleshooting tool that provides insights into CPU, memory, threads, and garbage collection.
+JProfiler: A commercial Java profiler offering advanced features for performance analysis, memory leak detection, and thread analysis.
+Spring Boot Actuator: Provides production-ready features, including metrics and health endpoints, that can be integrated with monitoring tools for real-time performance insights.
+Benefits:
+Profiling helps identify and resolve performance issues, ensures optimal application performance under various loads, and aids in proactive maintenance.
+          

@@ -1,0 +1,145 @@
+: REST API, HTTP, Postman, CURL, Annotations, Lombok, Spring MVC
+
+🔹 Part 1: Understanding REST API, HTTP Requests and Responses
+🔸 Concepts:
+REST = Representational State Transfer
+
+HTTP Methods:
+
+GET: Retrieve resource
+
+POST: Create resource
+
+PUT: Update resource
+
+DELETE: Delete resource
+
+🔸 HTTP Request Components:
+http
+Copy
+Edit
+GET /users HTTP/1.1
+Host: api.example.com
+Authorization: Bearer token
+Content-Type: application/json
+🔸 Response Example:
+json
+Copy
+Edit
+{
+  "status": 200,
+  "message": "User found",
+  "data": {
+    "id": 1,
+    "name": "John"
+  }
+}
+🔹 Part 2: Postman and cURL for API Testing
+🔸 Using Postman:
+Create a request:
+
+Method: GET
+
+URL: https://reqres.in/api/users/2
+
+Add Headers (if needed):
+
+Content-Type: application/json
+
+Click "Send"
+
+🔸 Using cURL:
+bash
+Copy
+Edit
+curl -X GET https://reqres.in/api/users/2
+
+curl -X POST https://reqres.in/api/users \
+  -H "Content-Type: application/json" \
+  -d '{"name": "John", "job": "Engineer"}'
+🔹 Part 3: Java Annotations & Lombok
+🔸 Java Annotations:
+java
+Copy
+Edit
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface CustomAnnotation {
+    String value() default "Hello";
+}
+🔸 Lombok Example:
+java
+Copy
+Edit
+import lombok.Data;
+
+@Data
+public class User {
+    private int id;
+    private String name;
+}
+No need to write getters/setters manually!
+
+✅ Add this to pom.xml:
+
+xml
+Copy
+Edit
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <version>1.18.30</version>
+    <scope>provided</scope>
+</dependency>
+🔹 Part 4: Spring MVC Basics
+🔸 Setup:
+Use Spring Initializr
+
+Dependencies: Spring Web, Lombok
+
+🔸 Controller Example:
+java
+Copy
+Edit
+@RestController
+@RequestMapping("/users")
+public class UserController {
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> getUser(@PathVariable int id) {
+        User user = new User(id, "John Doe");
+        return ResponseEntity.ok(user);
+    }
+
+    @PostMapping
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+}
+🔸 Model with Lombok:
+java
+Copy
+Edit
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+    private int id;
+    private String name;
+}
+🔸 Test with Postman:
+GET http://localhost:8080/users/1
+
+POST http://localhost:8080/users with JSON body:
+
+json
+Copy
+Edit
+{
+  "id": 2,
+  "name": "Alice"
+}

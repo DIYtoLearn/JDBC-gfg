@@ -1,0 +1,81 @@
+ORM
+----
+
+Object relational Mapping
+-------------------------
+
+Mismatches in orm
+------------------
+
+
+1. granularity mismatch
+
+ Object-> nested classes
+
+ tables/columns - > are flat and atomic -> requires JOINs or denormalization to represent nested structure
+
+
+2. Inheritance/subtype mismatch
+
+ Object -> inheritance by class and polymorphism
+ RDBMS -> lacks inheritance, single table strategy,table per class, join table
+
+3. Identity mismatch
+
+Object- use in memory id == and .equals
+Databses - rely on primary keys
+
+
+4. Assosiation and Navigation mismatch
+
+ oo    - direct object refs
+
+ RDBMS - uses foreign keys, joins for lookups 
+
+
+5. structural mismatch and type mismatch
+
+ oo-> custom objects, collection ,inheritance based- polymorph
+ SQL type - supports only primitive,
+
+
+6. Encapsultaion and accessibility mismatch
+
+
+      oo-> access enforced using public/access modifiers
+      orms -> use reflection, breaks encapsulation
+
+7. Transactional and lifecycle mismatch
+
+ rdbms-> has transactions as unit of work
+ oo-> non transactional
+
+
+advantages
+-----------
+
+1. dev productivity
+2. less boiler plate
+3. database portibility
+4.  performance in enhanced
+5. easier maintainability
+6. no sql queris for basic operations
+
+
+
+
+Inheritance in JPA
+--------------------
+
+ single table strategy, table per class, join table
+
+
+
+
+
+
+
+
+
+
+

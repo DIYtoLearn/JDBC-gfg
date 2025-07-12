@@ -1,0 +1,89 @@
+JPQL
+----
+
+Java persistence query language
+
+Object oriented query language defined in JPA , it allows querying entity
+objects instead of directly querying dataase tables like in SQL.
+
+SQL queries tables and columns directly
+JPQL queries Java classes and fields
+
+
+
+example 
+-------
+
+SQL:  SELECT * from Employee
+
+JPQL: SELECT e FROM Employee e;
+
+
+
+SQL:  SELECT name, salary from Employee
+
+JPQL: SELECT e.name , e.salary FROM Employee e;
+
+
+advantages:
+
+Object Oriented Queries
+Database Independence
+Type Safe
+
+Limitations
+------------
+1. Limited to mapped entities
+
+2. No full SQL power
+    like limit , window functions, common table expressions, vendor specific functions (like
+    PostgresSQL, Ilike);
+
+3. Slower for complex queries
+  
+4.  harder debugging
+
+5. limited update delete support
+
+   like it cannot return how many rows got updated 
+
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

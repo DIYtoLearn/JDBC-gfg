@@ -1,0 +1,5 @@
+custom password validator
+proper user defined exceptions
+centralized exception handling(works on AOP)
+
+password encoding (later)

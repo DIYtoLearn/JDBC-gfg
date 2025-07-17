@@ -1,0 +1,408 @@
+Spring Boot: IoC, Dependency Injection, Annotations, and Bean Configuration
+🕒 Duration: 2.5 hours
+Level: Beginner to Intermediate
+Tools: Spring Boot, Java 17+, Maven, IDE (IntelliJ / Eclipse / VS Code)
+
+
+1️⃣ What is IoC (Inversion of Control)?
+Inversion of Control is a design principle where the control of object creation is moved from the program to a container (Spring in this case).
+
+🔧 Without Spring Boot (Manual wiring)
+
+Engine engine = new Engine();
+Car car = new Car(engine);
+✅ With Spring Boot IoC Container
+Spring Boot manages the lifecycle of beans
+
+You use annotations (@Component, @Bean, etc.)
+
+2️⃣ Creating a Spring Boot Project
+Use https://start.spring.io/
+
+Project: Maven
+
+Language: Java
+
+Spring Boot: 3.x (or 2.7+)
+
+Dependencies: Spring Web
+
+📁 Project Structure
+
+com.example.springioc
+├── SpringIocApplication.java
+├── config/
+│   └── AppConfig.java
+├── model/
+│   ├── Engine.java
+│   ├── Car.java
+│   └── FuelType.java
+├── annotation/
+│   └── MyLog.java
+└── service/
+    └── TestAnnotationService.java
+
+3️⃣ Dependency Injection in Spring Boot
+🧱 Engine.java
+
+
+package com.example.springioc.model;
+
+public class Engine {
+    private String type;
+
+    public Engine(String type) {
+        this.type = type;
+    }
+
+    public String start() {
+        return "Engine started: " + type;
+    }
+}
+🚗 Car.java — Constructor-based Injection
+java
+Copy
+Edit
+package com.example.springioc.model;
+
+public class Car {
+    private final Engine engine;
+
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void drive() {
+        System.out.println(engine.start());
+        System.out.println("Car is driving...");
+    }
+}
+4️⃣ Java-based Configuration using @Configuration and @Bean
+⚙️ AppConfig.java
+
+package com.example.springioc.config;
+
+import com.example.springioc.model.Car;
+import com.example.springioc.model.Engine;
+import com.example.springioc.model.FuelType;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public FuelType fuelType() {
+        return FuelType.ELECTRIC;
+    }
+
+    @Bean
+    public Engine engine() {
+        return new Engine(fuelType().name());
+    }
+
+    @Bean
+    public Car car() {
+        return new Car(engine());
+    }
+}
+🌱 SpringIocApplication.java
+
+package com.example.springioc;
+
+import com.example.springioc.model.Car;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+
+@SpringBootApplication
+public class SpringIocApplication {
+
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(SpringIocApplication.class, args);
+
+        Car car = context.getBean(Car.class);
+        car.drive();
+    }
+}
+5️⃣ Enums as Dependencies
+🔋 FuelType.java
+
+package com.example.springioc.model;
+
+public enum FuelType {
+    PETROL, DIESEL, ELECTRIC
+}
+Used in Engine as shown above.
+
+6️⃣ Setter-based DI (Optional)
+You can also inject dependencies using setters.
+
+
+@Bean
+public Car car() {
+    Car car = new Car();
+    car.setEngine(engine());
+    return car;
+}
+7️⃣ Understanding Annotation Targets
+🔧 MyLog.java (Custom Annotation)
+
+package com.example.springioc.annotation;
+
+import java.lang.annotation.*;
+
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyLog {
+    String value() default "";
+}
+🧪 Applying It
+
+package com.example.springioc.service;
+
+import com.example.springioc.annotation.MyLog;
+import org.springframework.stereotype.Service;
+
+@Service
+public class TestAnnotationService {
+
+    @MyLog("executing run()")
+    public void run() {
+        System.out.println("Running logic...");
+    }
+}
+You can use reflection or AOP to process this annotation at runtime.
+
+8️⃣ Practice Task (25–30 mins)
+Let attendees:
+
+Create a Person and Address class
+
+Inject Address into Person
+
+Add an enum Gender
+
+Wire them via @Configuration or @Component
+
+✅ Example:
+
+public class Person {
+    private final String name;
+    private final Address address;
+    private final Gender gender;
+
+    public Person(String name, Address address, Gender gender) {
+        this.name = name;
+        this.address = address;
+        this.gender = gender;
+    }
+
+    public void printDetails() {
+        System.out.println(name + ", " + address.getCity() + ", " + gender);
+    }
+}
+9️⃣ Q&A + Wrap Up
+✅ Key Takeaways
+Spring Boot simplifies IoC and DI
+
+Use @Bean for explicit wiring, @Component for component scanning
+
+Enums work seamlessly with Spring beans
+
+You can create custom annotations and learn their targets
+----------------------------------------------------------------------------------------------------------------
+Spring Boot Setup
+Using Spring Initializr
+
+Dependencies: Spring Web
+
+Structure:
+
+
+com.example.springioc
+├── SpringIocApplication.java
+├── config/
+├── model/
+├── annotation/
+└── service/
+📌 1. What Is IoC?
+Inversion of Control = container (Spring) creates and manages your beans
+
+💉 2. Types of Dependency Injection in Spring Boot
+✅ A. Constructor-Based Dependency Injection (Recommended)
+
+@Component
+public class Car {
+    private final Engine engine;
+
+    @Autowired
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void drive() {
+        System.out.println(engine.start());
+    }
+}
+Spring Boot auto-wires constructor parameters.
+
+✅ B. Setter-Based Dependency Injection
+
+@Component
+public class Car {
+    private Engine engine;
+
+    @Autowired
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void drive() {
+        System.out.println(engine.start());
+    }
+}
+Useful when you need optional injection.
+
+✅ C. Field-Based Dependency Injection
+
+@Component
+public class Car {
+
+    @Autowired
+    private Engine engine;
+
+    public void drive() {
+        System.out.println(engine.start());
+    }
+}
+Least recommended – harder to test/mock and violates encapsulation.
+
+✅ D. Interface-Based Injection (Manual – not common in Spring)
+You can inject interfaces via any of the above DI types:
+
+
+public interface Engine {
+    String start();
+}
+
+@Component
+public class DieselEngine implements Engine {
+    public String start() {
+        return "Diesel engine started.";
+    }
+}
+
+@Component
+public class Car {
+    private final Engine engine;
+
+    @Autowired
+    public Car(Engine engine) {
+        this.engine = engine;
+    }
+}
+Spring injects the correct implementation based on the interface.
+
+🔋 FuelType.java (Enum Bean)
+
+public enum FuelType {
+    PETROL, DIESEL, ELECTRIC
+}
+🧱 Engine.java with Enum
+
+@Component
+public class Engine {
+    private final FuelType fuelType;
+
+    public Engine(FuelType fuelType) {
+        this.fuelType = fuelType;
+    }
+
+    public String start() {
+        return "Engine started using " + fuelType;
+    }
+}
+🛠️ Using @Configuration + @Bean
+
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public FuelType fuelType() {
+        return FuelType.DIESEL;
+    }
+
+    @Bean
+    public Engine engine() {
+        return new Engine(fuelType());
+    }
+
+    @Bean
+    public Car car() {
+        return new Car(engine());
+    }
+}
+🎯 Annotation Targets
+MyLog.java:
+
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface MyLog {
+    String value() default "";
+}
+Use in Service:
+
+@Service
+public class LoggingService {
+    @MyLog("log message")
+    public void log() {
+        System.out.println("Logging...");
+    }
+}
+🧪 Practice: All DI Types + Enum
+Person.java
+
+@Component
+public class Person {
+    private String name;
+    private Address address;
+    private Gender gender;
+
+    public Person(String name, Address address, Gender gender) {
+        this.name = name;
+        this.address = address;
+        this.gender = gender;
+    }
+
+    public void show() {
+        System.out.println(name + ", " + address.getCity() + ", " + gender);
+    }
+}
+AppConfig.java
+
+
+@Bean
+public Gender gender() {
+    return Gender.FEMALE;
+}
+
+@Bean
+public Address address() {
+    return new Address("Mumbai");
+}
+
+@Bean
+public Person person() {
+    return new Person("Priya", address(), gender());
+}
+🧾 Summary Table
+DI Type	Annotation Needed	Recommended?	Testable
+Constructor	✅ @Autowired (optional)	✅ Yes	✅ Yes
+Setter	✅ @Autowired	✔️ Yes (optional)	✅ Yes
+Field	✅ @Autowired	❌ Not preferred	❌ Hard
+Interface	✅ Any injection style	✔️ Yes (for abstraction)	✅ Yes
+
+
+
+

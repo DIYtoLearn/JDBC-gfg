@@ -8,6 +8,7 @@ import com.digLib.entities.Book;
 public interface BookService
 {
 	List<Book> getAllBooks();
+	Book getBookById(int id);
 	Book addBook(BookDTO bookDTO);
 	String deleteBook(int id);
 	Book updateBook(int id, BookDTO bookDTO);

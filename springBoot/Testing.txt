@@ -1,0 +1,31 @@
+                                 Testing
+
+   White Box Testing                                Black Box Testing
+     Dev  team   
+      unit
+      integration                                             test 
+      
+   
+    Libraries Junit,TestNg -> java
+
+
+Mockito
+--------
+
+Controller mockMvc
+Service    
+Repos      
+private
+void
+
+
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+

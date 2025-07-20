@@ -1,0 +1,59 @@
+
+What is caching?
+
+Caching is the process of storing frequently accessed data in a temporary storage so that it can be retrieved faster for future requests, reducing the need to fetch data from the original source
+(like a db or an api)
+
+Benifts
+-----------
+
+1. Faster Performance
+2. Reduces Server Load
+3. Improves user experience
+4. Supports Offline/edge use
+5. Reduced Latency
+
+
+How Caching works
+------------------
+
+1. User requesrs data -> cache check
+
+2. if data is present (cache hit) -> cache return
+
+3. if data absent(cache miss) -> fetch from original source (db) 
+                                 store in cache
+                                 return
+
+
+cache hit -> data found
+
+cache miss -> data not found in cache
+
+TTL(time to live) ->  Duration after which a cache entry expires
+
+Eviction   -> Removal of old or unused cache entries (based on poilicy)
+
+stale data -> Outdated cache content due to source updates
+
+
+Types Of Caching
+------------------
+
+1.  In memory Cache
+
+    - Data stored in the Ram of the application server
+    - Example HashMap ,ConcurrentHashMap, Guava, Echahce
+    - very fast but limited by memory,
+
+
+
+
+
+
+
+
+
+
+
+

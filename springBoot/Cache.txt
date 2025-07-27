@@ -46,6 +46,103 @@ Types Of Caching
     - Example HashMap ,ConcurrentHashMap, Guava, Echahce
     - very fast but limited by memory,
 
+2.  Distributed Cache
+     - Shared cache across multiple servers/nodes
+     - Examples: Redis, Memcached, Hazelcast
+     - Used in clustered microservises
+     - Horizontal scalability
+
+3. Browser/Client side cace
+    - Stored in web browser or client storage(cookies,localstorage)
+    - User for static assets : HTML CSS JS images etc
+
+
+other types
+
+4. Application Cache
+5. Http Cache
+6. Database cache (ex  PostgreSQL Buffer Cache)
+7. Computation/Result Cache
+    
+
+-----------------------------------------
+
+Cache Eviction Policies
+------------------------
+LRU                Least Recently Used - remove data not used recently
+LFU                Least Frequently Used - remove least accessed data
+FIFO               First in First out 
+TTL-based          Remove data after a time limit
+
+
+Use cases of cache
+-------------------
+
+1. Login Session Storage
+2. User Profile Data
+3. Frequent Read Queries (ex top 10 products)
+4. Search Suggestions and Autocomplete in keyboards
+
+--------------------------------------------------------------------
+
+Introduction to redis
+
+What is redis?
+
+Redis is an open-source, in-memory data structure store that is often used as a database, cache, and message broker. It's known for its speed and flexibility, supporting various data structures like strings, lists, sets, and more. Redis is particularly useful for applications requiring fast data access and manipulation, such as caching frequently accessed data to improve performance
+
+- In memory Key Value Data store
+- User cases caching,session store,realtime analytics,message broker(pub/sub)
+- Redis Data types: String ,Hash ,List ,Set, SortedSet
+
+
+
+
+Cache vs Cookie
+----------------           Cache                  Cookie
+
+Storage Location       Server or browser         Browser
+Purpose                Speed up data access      Store user data/preference
+Expiry                 set explicitly            Expire automatically
+size limit             Larger                    typically 4KB
+Accessibility          Server-side               Client side  
+
+steps: to work with redis
+
+1. install redis 5+ zip on windows
+
+2.  add dependencies
+   	<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+
+
+3.  application.properties
+
+   
+
+#Redis Configuration
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
+
+#Enable caching
+spring.cache.type=redis
+
+
+4. in main add
+    @EnableCaching
+
+
+
+
+
+
+
 
 
 

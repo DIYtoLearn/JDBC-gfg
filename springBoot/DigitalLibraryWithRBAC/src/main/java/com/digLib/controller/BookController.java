@@ -61,6 +61,7 @@ public class BookController
 		return bookService.deleteBook(id);
 	}
 
+	@PreAuthorize("hasRole('USER')")
 	@GetMapping("/search")
 	public List<Book> searchBooks(
 			@RequestParam(required=false)		String title,

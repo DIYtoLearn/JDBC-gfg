@@ -1,0 +1,82 @@
+Need For Security
+------------------
+
+1. Protect sensitive data
+   user credentials(username password)
+   PIN (Personal Identification Number)
+   Payment Data, credit card info, banking info
+   Business secrets
+
+2. Preventing Unauthorized Access
+   Access admin only areas
+   Change or delete
+   Abuse APIS
+   Bypass business logic
+
+3. Comply with legal and Regulatory requirements
+      GDPR(EU)       - Protect EU Citizen data
+      HIPAA(USA)     - Secure patient health info
+      PDI-CSS        - Secure credit and transactions
+
+4. Defend Against common attacks
+   SQL injection - data theft , corruption
+   cross site scripting (XSS) - session hijack, data theft
+   Cross site request forgery (CSRF) - Unauthorized actions
+  
+------------------------------------------------------------------
+
+Spring Security
+-----------------
+is a powerful and highly customizable authentication and access-control framework for java applications . Standard for securing 
+spring based applications
+
+it provides
+
+1. Authentication(who are you)
+2. Authorization (what are you allowed to do)
+3. Protection against common attacks like
+     CSRF
+     Session fixations
+     Click Jacking
+     Security Headers
+
+
+
+Spring boot 3 Spring security 6 + java 17
+
+  Use of SecurityFilterChain instead of extending
+   WebSecurityConfigrerAdapter.
+
+--------------------------------------------------------------
+
+@Bean
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    http
+      .csrf(AbstractHttpConfigurer::disable)
+      .authorizeHttpRequests(auth -> auth
+        // Public access to register
+        .requestMatchers(HttpMethod.POST, "/register").permitAll()
+
+        // Only ADMIN can access GET /users
+        .requestMatchers(HttpMethod.GET, "/users").hasRole("ADMIN")
+
+        // POST /users allowed to USER or ADMIN
+        .requestMatchers(HttpMethod.POST, "/users").hasAnyRole("USER", "ADMIN")
+
+        // GET /admin/reports allowed only for ADMIN
+        .requestMatchers(HttpMethod.GET, "/admin/reports").hasRole("ADMIN")
+
+        // Any other requests must be authenticated
+        .anyRequest().authenticated())
+      .httpBasic(Customizer.withDefaults())
+      .formLogin(AbstractHttpConfigurer::disable);
+
+    return http.build();
+  }
+
+ 
+
+
+
+
+

@@ -5,7 +5,7 @@ spring:
         registration:
           google :
             clientId: 
-            clientSecret:
+#            clientSecret:
 
 
 server:

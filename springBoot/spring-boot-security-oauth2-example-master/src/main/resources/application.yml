@@ -2,7 +2,7 @@ security:
   oauth2:
     client:
        clientId: 
-#       clientSecret: 
+
        accessTokenUri: https://github.com/login/oauth/access_token
        userAuthorizationUri: https://github.com/login/oauth/authorize
        clientAuthenticationScheme: form

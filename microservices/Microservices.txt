@@ -98,6 +98,25 @@ a. Hystrix
 b. Resiliance 4j
 
 
+Configurations can be done in 2 ways
+------------------------------------
+1. based on time taken for requests.
+
+2. based on number of requests.
+
+
+-------------------------------------------
+
+Operates in 3 states 
+----------------------
+
+CLOSED state  -- normal working
+OPEN State    -- circuit broken and no more communication
+HalfOpen state -- testing whether the service is back up or not
+
+
+
+
 
 Feign Client in Spring Cloud
 -----------------------------

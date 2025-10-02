@@ -1,0 +1,4 @@
+ what’s the practice in spring boot to keep it in sync in-memory db with persistence db ? May be we can discuss it at the end.
+
+
+How to sync the in-memory data using cron job across all pods of clusters ? Like is there a way to publish the event containing data from spring to all the DB

@@ -1,0 +1,146 @@
+Oauth (open authorization)
+----------------------------
+
+An open standard authorization protocol that allows one application to access user data from
+another application , without sharing login credentials.
+
+Originally developed by Twitter  and later adopted as an open standard.
+
+
+Use Cases ->
+  
+  1. apps like GitHub ,Hackerrank,GFG etc can be signed in using google,github,facebook,linkedin
+
+
+
+OAuth-1.0
+----------
+
+Resource Owner                   -      The user who authorizes access
+
+Client                           -      The application requesting access is the client(eg. Canva)
+
+Resource Server                  -      The API server holding protected data (eg. Google)
+
+Authentication Server            -      Verifies identity and issues token
+
+Access Token                     -      A key issued to the client to access the resource
+
+Consumer Key/Secret              -      ID and Secret assigned to client during registeration
+
+
+
+OAuth 1.0 workflow
+-------------------
+
+1. client Request Token
+2. User Authorizes
+3. Client Receives Access Token
+4. Client Uses Token.
+
+Drwabacks of OAuth-1
+-------------------
+
+-> Complex and hard to implement due to cryptographic signatures (HMAC)
+-> Token exchange and signature generation are complicated
+-> Required secure storage of secretes in client side.
+
+
+OAuth-2 (Modern, Scalable Standard)
+----------------------------------------------
+
+OAuth 2.0 is a complete rewrite of OAuth 1.0 it aims to
+
+1. Simplify Implementation
+2. Separate authorization from authentication
+3. Use Bearer tokens instead of HMAC signatures
+4. Support web , desktop , mobile, and IOT apps.
+
+
+OAuth-2.0
+----------
+
+Resource Owner                   -      The user who grants access to the data
+
+Client                           -      The application requesting data(eg. Canva)
+
+Resource Server                  -      The API server holding protected data (eg. Google)
+
+Authentication Server            -      Issues Token after user approval
+
+Access Token                     -      A Token used to access API (short-lived)
+
+Refresh Token                    -      Used to get new Access tokens(long-lived)
+
+Scopes                           -      Defines what level of access the app is requesting
+
+Grant Types                      -      Ways in which the app get the token
+
+
+Auth-2.0 flow
+---------------
+
+1 . Client Registeration
+    Reister your app with the authorization server to get a client id and client secret
+
+
+
+2.  Authorization Request.
+
+    Client redirects user to Authorization Server with scope and redirect url
+
+
+3. User login and consent
+
+     user logs in and grants permission
+
+4.  Authorization Server Returns-code
+    Redirects user back with a temporary code.
+
+5.  Client Request Token
+    Client sends code to Authorization Server to get Access token + (optional refresh token)
+
+6.   Token  Usage
+     Access Token is used in Authorization headers (eg. Bearer token) to call APIs
+
+
+
+Example 1
+
+-------------
+Git Hub
+-------
+Client ID
+Ov23liu1vZgGwibkFMW6
+
+Client secrets
+7bf72113e2a269edc0d634dffeba885ad09dc021
+ss
+
+Example 2
+Google
+
+Client ID
+281096125821-lqskg5i7i9qvl677fpm6jd7pths6g0c3.apps.googleusercontent.com
+Client secret
+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
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

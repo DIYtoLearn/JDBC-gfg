@@ -1,0 +1,94 @@
+Aspect oriented programming/Cross cutting Concerns
+----------------------------------------------------
+
+Cross Cutting Concerns: Move additional services of a project into another class [services/aspect class]
+and bind them when required.
+
+
+1. Aspect : Aspect is a class that provides additional services to the project.
+         Transaction Management, Logging, Security, Encode Decode
+
+2. Advice : it is a method inside the Aspect class. (actual implementation of the aspect)
+
+Types of advices
+----------------
+a. Before Advice- executes advice before the business method starts
+
+b. After Advice- executes advice after the business method completes
+
+c. After Returning Advice-executes advice after successful completion of a business method
+
+d. After Throwing Advices-  if business method throws an exception
+
+e. Around Advice- Advices code is made into 2 sections/parts 1st part executes before advice and 2nd after advices
+
+3. Pointcut: It is an expression that will select the business methods which need advices.
+              it can never specify what advices are required.
+              
+           Expressions:  AccessModifier ReturnType package.Class.method(params)
+              
+4. JoinPoint : its a combo of advices + pointcut -> it connects the business methods with the required      advices
+
+5.  target : pure business class object
+
+6.  weaving Its a process of mixing business class meths and their connected advices
+
+7. proxy: final o/p class/object is called as proxy that contains both logics connected.
+
+
+
+Implementations of AOP
+----------------------
+1. using XML(legacy style)
+2. Using Annotations (AspectJ)
+
+------------------------------------------------------
+  Expressions:  AccessModifier ReturnType package.Class.method(params)
+  
+#1  public int com.example.demo.service.BusinessClass.payment(Card)
+
+#2  public * com.example.demo.service.BusinessClass.*()
+
+  -> zero parameters only
+  -> any method name 
+  -> inside BusinessClass
+  -> any return type
+  
+#3  public * com.example.demo.service.BusinessClass.*(..)
+
+    -> zero or more parameters[any params]
+    -
+#4 #1  public * com.example.demo.service.*.*(..)
+
+  all classes which are inside the com.example.demo.service package and their methods
+  
+  
+#5 public * *(..)
+
+   all packages any method any return and params
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

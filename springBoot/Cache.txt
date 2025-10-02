@@ -1,0 +1,156 @@
+
+What is caching?
+
+Caching is the process of storing frequently accessed data in a temporary storage so that it can be retrieved faster for future requests, reducing the need to fetch data from the original source
+(like a db or an api)
+
+Benifts
+-----------
+
+1. Faster Performance
+2. Reduces Server Load
+3. Improves user experience
+4. Supports Offline/edge use
+5. Reduced Latency
+
+
+How Caching works
+------------------
+
+1. User requesrs data -> cache check
+
+2. if data is present (cache hit) -> cache return
+
+3. if data absent(cache miss) -> fetch from original source (db) 
+                                 store in cache
+                                 return
+
+
+cache hit -> data found
+
+cache miss -> data not found in cache
+
+TTL(time to live) ->  Duration after which a cache entry expires
+
+Eviction   -> Removal of old or unused cache entries (based on poilicy)
+
+stale data -> Outdated cache content due to source updates
+
+
+Types Of Caching
+------------------
+
+1.  In memory Cache
+
+    - Data stored in the Ram of the application server
+    - Example HashMap ,ConcurrentHashMap, Guava, Echahce
+    - very fast but limited by memory,
+
+2.  Distributed Cache
+     - Shared cache across multiple servers/nodes
+     - Examples: Redis, Memcached, Hazelcast
+     - Used in clustered microservises
+     - Horizontal scalability
+
+3. Browser/Client side cace
+    - Stored in web browser or client storage(cookies,localstorage)
+    - User for static assets : HTML CSS JS images etc
+
+
+other types
+
+4. Application Cache
+5. Http Cache
+6. Database cache (ex  PostgreSQL Buffer Cache)
+7. Computation/Result Cache
+    
+
+-----------------------------------------
+
+Cache Eviction Policies
+------------------------
+LRU                Least Recently Used - remove data not used recently
+LFU                Least Frequently Used - remove least accessed data
+FIFO               First in First out 
+TTL-based          Remove data after a time limit
+
+
+Use cases of cache
+-------------------
+
+1. Login Session Storage
+2. User Profile Data
+3. Frequent Read Queries (ex top 10 products)
+4. Search Suggestions and Autocomplete in keyboards
+
+--------------------------------------------------------------------
+
+Introduction to redis
+
+What is redis?
+
+Redis is an open-source, in-memory data structure store that is often used as a database, cache, and message broker. It's known for its speed and flexibility, supporting various data structures like strings, lists, sets, and more. Redis is particularly useful for applications requiring fast data access and manipulation, such as caching frequently accessed data to improve performance
+
+- In memory Key Value Data store
+- User cases caching,session store,realtime analytics,message broker(pub/sub)
+- Redis Data types: String ,Hash ,List ,Set, SortedSet
+
+
+
+
+Cache vs Cookie
+----------------           Cache                  Cookie
+
+Storage Location       Server or browser         Browser
+Purpose                Speed up data access      Store user data/preference
+Expiry                 set explicitly            Expire automatically
+size limit             Larger                    typically 4KB
+Accessibility          Server-side               Client side  
+
+steps: to work with redis
+
+1. install redis 5+ zip on windows
+
+2.  add dependencies
+   	<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-cache</artifactId>
+		</dependency>
+
+
+3.  application.properties
+
+   
+
+#Redis Configuration
+spring.data.redis.host=localhost
+spring.data.redis.port=6379
+
+#Enable caching
+spring.cache.type=redis
+
+
+4. in main add
+    @EnableCaching
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

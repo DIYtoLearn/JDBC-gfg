@@ -1,5 +1,9 @@
 custom password validator
 proper user defined exceptions
 centralized exception handling(works on AOP)
+logging
+bulk upload
+add fine for late return
+
 
 password encoding (later)

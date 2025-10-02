@@ -1,0 +1,46 @@
+
+Requirement 
+         -> 
+           Designing
+                   -> Development
+                                 -> Test
+                                        -> Deploy
+                                                -> Maintainance
+
+
+-----------------------------------------------------------------------
+
+
+Stories
+--------
+
+Admin Stories
+--------------
+us1 :  As an Admin i want to register/login to the library    
+us2:   As an Admin i want to add Books to the library
+us3:   As an Admin i want to update Books in the library
+us3:   As an Admin i want to delete Books in the library
+
+User Stories
+--------------
+
+us1: As a User i want to register login into the library
+us2: As a user i want to view all books
+us3: As a user i want to search books by category 
+us4: As a user i want to borrow a book
+us5: As a user i want to return a book
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
